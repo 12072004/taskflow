@@ -21,8 +21,8 @@ app.get('/api/health', (_, res) => res.json({ status: 'ok', timestamp: new Date(
 
 // Serve frontend in production
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../frontend/dist')));
-  app.get('*', (_, res) => res.sendFile(path.join(__dirname, '../frontend/dist/index.html')));
+  app.use(express.static(path.join(__dirname, '../frontend/build')));
+app.get('*', (_, res) => res.sendFile(path.join(__dirname, '../frontend/build/index.html')));
 }
 
 app.listen(PORT, () => console.log(`🚀 TaskFlow API running on port ${PORT}`));
